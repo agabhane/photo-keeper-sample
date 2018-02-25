@@ -1,0 +1,13 @@
+<div class="action">
+  <button mat-raised-button [disabled]="selectedAlbumCount < 1 || selectedAlbumCount > 2" (click)="gotoPhotos()">Show Photos</button>
+</div>
+<div class="album-wrapper">
+  <mat-card class="album" *ngFor="let album of albums" (click)="selectAlbum(album)" [ngClass]="{selected: album.selected}">
+    <mat-card-content>
+      <mat-icon mat-list-icon>photo_album</mat-icon>
+    </mat-card-content>
+    <mat-card-footer>
+      <p>{{album.title}}</p>
+    </mat-card-footer>
+  </mat-card>
+</div>

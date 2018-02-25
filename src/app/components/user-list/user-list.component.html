@@ -1,0 +1,8 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let user of userList" (click)="gotoAlbums(user.id)">
+    <mat-icon mat-list-icon>account_circle</mat-icon>
+    <h3 mat-line class="name">{{user.name}}</h3>
+    <h5 mat-line>{{user.email}}</h5>
+    <p mat-line> {{user.address.suite + ", " + user.address.street + ", " + user.address.city + ", " + user.address.zipcode }} </p>
+  </mat-list-item>
+</mat-list>

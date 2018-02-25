@@ -1,0 +1,34 @@
+.album-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  
+  .album {
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s;
+
+    mat-icon {
+      font-size: 60px;
+      height: 60px;
+      width: 60px;
+      color: gray;
+    }
+    p {
+      padding: 10px;
+    }
+    &.selected {
+      background: cornflowerblue;
+      color: white;
+
+      mat-icon {
+        color: white;
+      }
+    }
+  }
+}
+
+.action {
+  padding: 0 10px;
+}

@@ -1,0 +1,8 @@
+<div class="photo-wrapper">
+  <mat-card class="photo" *ngFor="let photo of photos[currentAlbumIndex]">
+    <img src="{{photo.thumbnailUrl}}" alt="Image Thumbnail">
+    <mat-card-footer>
+      <p>{{photo.title}}</p>
+    </mat-card-footer>
+  </mat-card>
+</div>
