@@ -1,27 +1,35 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterModule, Routes } from '@angular/router';
+import { RouterOutletStubComponent } from "../testing/router-stubs";
+
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
+
+const appRoutes: Routes = [
+  { path: 'users'}
+];
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
-      ],
+        AppComponent,
+        RouterOutletStubComponent
+      ]
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+
+  beforeEach(() => {
+    this.fixture = TestBed.createComponent(AppComponent);
+    this.component = this.fixture.componentInstance;
+    this.fixture.detectChanges();
+  });
+
+  it('should create the app', () => {
+    expect(this.component).toBeDefined();
+    expect(this.component.title).toEqual('Photo Keeper');
+    let de = this.fixture.debugElement.query(By.css('header .wrapper'));
+    let el = de.nativeElement;
+    expect(el.textContent).toContain('Photo Keeper');
+  });
 });

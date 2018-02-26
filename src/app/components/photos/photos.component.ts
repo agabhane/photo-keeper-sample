@@ -29,12 +29,15 @@ export class PhotosComponent implements OnInit {
         this.getPhotos();
 
         if (this.albumIds.length > 1) {
-          setInterval(() => {
-            this.currentAlbumIndex = +!this.currentAlbumIndex;
-          }, time);
+          this.startTimer();
         }
-
       });
+  }
+
+  startTimer() {
+    setInterval(() => {
+      this.currentAlbumIndex = +!this.currentAlbumIndex;
+    }, time);
   }
 
   getPhotos() {

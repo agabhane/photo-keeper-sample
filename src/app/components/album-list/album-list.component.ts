@@ -21,10 +21,14 @@ export class AlbumListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params: ParamMap) => {
-      this.albumService.getUserAlbums(params.get('userId')).subscribe((albums) => {
-        this.albums = albums;
-      })
+      this.getAlbums(params.get('userId'));
     });
+  }
+  
+  getAlbums(userId) {
+    this.albumService.getUserAlbums(userId).subscribe((albums) => {
+      this.albums = albums;
+    })
   }
 
   selectAlbum(album: Album) {
